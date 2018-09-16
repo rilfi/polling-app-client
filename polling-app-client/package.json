@@ -4,10 +4,16 @@
   "private": true,
   "dependencies": {
     "antd": "^3.2.2",
+    "griddle-react": "^1.13.1",
     "react": "^16.2.0",
+    "react-confirm-alert": "^2.0.5",
+    "react-csv": "^1.0.15-RC2",
+    "react-data-components": "^1.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.1"
+    "react-scripts": "1.1.1",
+    "react-skylight": "^0.5.1",
+    "react-table": "^6.8.6"
   },
   "scripts": {
     "start": "react-app-rewired start",

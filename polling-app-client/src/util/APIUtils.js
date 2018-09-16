@@ -32,10 +32,102 @@ export function getAllPolls(page, size) {
         method: 'GET'
     });
 }
+export function getAllStudents(page, size) {
+    page = page || 0;
+    size = size || POLL_LIST_SIZE;
+
+    return request({
+        url: API_BASE_URL + "/students",
+        method: 'GET'
+    });
+}
+export function getAllExpenseTypes(page, size) {
+    page = page || 0;
+    size = size || POLL_LIST_SIZE;
+
+    return request({
+        url: API_BASE_URL + "/expenseType",
+        method: 'GET'
+    });
+}
+
+export function createStudent(pollData) {
+    return request({
+        url: API_BASE_URL + "/students",
+        method: 'POST',
+        body: JSON.stringify(pollData)         
+    });
+}
+export function createExpenseType(pollData) {
+    return request({
+        url: API_BASE_URL + "/expenseType",
+        method: 'POST',
+        body: JSON.stringify(pollData)         
+    });
+}
+export function updateExpenseType(pollData,id) {
+    return request({
+        url: API_BASE_URL + "/expenseType/"+id,
+        method: 'PUT',
+        body: JSON.stringify(pollData)         
+    });
+}
+
+export function createExpenseCharge(pollData, id) {
+    return request({
+        url: API_BASE_URL + "/expenseCharge/"+id,
+        method: 'POST',
+        body: JSON.stringify(pollData)         
+    });
+}
+
+export function createdynamic(pollData, id) {
+    return request({
+        url: API_BASE_URL + "/dynamic/"+id,
+        method: 'POST',
+        body: JSON.stringify(pollData)         
+    });
+}
+export function createnonQuantifyablee(pollData, id) {
+    return request({
+        url: API_BASE_URL + "/nonQuantifyable/"+id,
+        method: 'POST',
+        body: JSON.stringify(pollData)         
+    });
+}
+export function createQuantifyable(pollData, id) {
+    return request({
+        url: API_BASE_URL + "/quantifyable/"+id,
+        method: 'POST',
+        body: JSON.stringify(pollData)         
+    });
+}
+export function createmiscellaneous(pollData, id) {
+    return request({
+        url: API_BASE_URL + "/miscellaneous/"+id,
+        method: 'POST',
+        body: JSON.stringify(pollData)         
+    });
+}
+
 
 export function createPoll(pollData) {
     return request({
         url: API_BASE_URL + "/polls",
+        method: 'POST',
+        body: JSON.stringify(pollData)         
+    });
+}
+export function createAircraftType(pollData) {
+    return request({
+        url: API_BASE_URL + "/aircraftType",
+        method: 'POST',
+        body: JSON.stringify(pollData)         
+    });
+}
+export function createAircraft(pollData) {
+    return request({
+        url: API_BASE_URL + "/aircraft",
         method: 'POST',
         body: JSON.stringify(pollData)         
     });
