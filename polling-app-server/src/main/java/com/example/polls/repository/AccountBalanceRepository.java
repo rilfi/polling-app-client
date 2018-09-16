@@ -1,7 +1,7 @@
-package com.inoovalab.aaa.studentStatement.repository;
+package com.example.polls.repository;
 
 
-import com.inoovalab.aaa.studentStatement.model.AccountBalance;
+import com.example.polls.model.AccountBalance;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

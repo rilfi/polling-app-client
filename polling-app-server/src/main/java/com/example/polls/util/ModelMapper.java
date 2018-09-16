@@ -1,10 +1,10 @@
 package com.example.polls.util;
 
 import com.example.polls.model.Poll;
+import com.example.polls.model.Student;
+import com.example.polls.model.SummeryExpense;
 import com.example.polls.model.User;
-import com.example.polls.payload.ChoiceResponse;
-import com.example.polls.payload.PollResponse;
-import com.example.polls.payload.UserSummary;
+import com.example.polls.payload.*;
 
 import java.time.Instant;
 import java.util.List;
@@ -47,6 +47,25 @@ public class ModelMapper {
         pollResponse.setTotalVotes(totalVotes);
 
         return pollResponse;
+    }
+    public static StudentResponce mapStudentToStudentResponse(Student student, User creator) {
+        StudentResponce studentResponce = new StudentResponce();
+        studentResponce.setId(student.getId());
+        studentResponce.setReferenceNo(student.getReferenceNo());
+        studentResponce.setName(student.getName());
+        studentResponce.setEmail(student.getEmail());
+        studentResponce.setContactNo(student.getContactNo());
+        return studentResponce;
+    }
+
+    public static SummeryExpenseResponce mapSummeryExpenseToSummeryExpenseResponse(SummeryExpense summeryExpense) {
+        SummeryExpenseResponce summeryExpenseResponce  = new SummeryExpenseResponce();
+        summeryExpenseResponce.setId(summeryExpense.getId());
+        summeryExpenseResponce.setType(summeryExpense.getExpenseType().getType());
+        summeryExpenseResponce.setDescription(summeryExpense.getDescription());
+        summeryExpenseResponce.setAmount(summeryExpense.getAmount());
+
+        return summeryExpenseResponce;
     }
 
 }

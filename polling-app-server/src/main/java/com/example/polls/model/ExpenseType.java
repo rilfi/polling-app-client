@@ -1,18 +1,28 @@
-package com.inoovalab.aaa.studentStatement.model;
+package com.example.polls.model;
 
 
-import com.inoovalab.aaa.studentStatement.model.audit.UserDateAudit;
+import com.example.polls.model.audit.UserDateAudit;
 
 import javax.persistence.*;
 
 @Entity
+
 @Table(name = "expenseType")
-public class ExpenseType extends UserDateAudit {
+public class ExpenseType   {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String type;
-    private String SubType;
+    private String subType;
+    private Double charge;
+
+    public Double getCharge() {
+        return charge;
+    }
+
+    public void setCharge(Double charge) {
+        this.charge = charge;
+    }
 
     public Long getId() {
         return id;
@@ -31,10 +41,10 @@ public class ExpenseType extends UserDateAudit {
     }
 
     public String getSubType() {
-        return SubType;
+        return subType;
     }
 
     public void setSubType(String subType) {
-        SubType = subType;
+        this.subType = subType;
     }
 }

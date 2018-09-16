@@ -1,18 +1,15 @@
-package com.inoovalab.aaa.studentStatement.model;
+package com.example.polls.model;
 
-import com.inoovalab.aaa.studentStatement.model.audit.UserDateAudit;
+import com.example.polls.model.audit.UserDateAudit;
 
 import javax.persistence.*;
-
+@Entity
+@Table(name = "MiscellaneousExpense")
 public class MiscellaneousExpense extends UserDateAudit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "expenseType_id", nullable = false)
-    private ExpenseType expenseType;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "student_id", nullable = false)
@@ -28,14 +25,6 @@ public class MiscellaneousExpense extends UserDateAudit {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public ExpenseType getExpenseType() {
-        return expenseType;
-    }
-
-    public void setExpenseType(ExpenseType expenseType) {
-        this.expenseType = expenseType;
     }
 
     public Student getStudent() {

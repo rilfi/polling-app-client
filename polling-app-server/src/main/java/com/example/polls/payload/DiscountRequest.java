@@ -1,12 +1,21 @@
-package com.inoovalab.aaa.studentStatement.payload;
+package com.example.polls.payload;
 
 import java.util.Date;
 
 public class DiscountRequest {
+    private Long studentReferenceNo;
     private Long expenseType_id;
     private Long amount;
     private Date startDate;
     private Date endDate;
+
+    public Long getStudentReferenceNo() {
+        return studentReferenceNo;
+    }
+
+    public void setStudentReferenceNo(Long studentReferenceNo) {
+        this.studentReferenceNo = studentReferenceNo;
+    }
 
     public Long getExpenseType_id() {
         return expenseType_id;

@@ -1,10 +1,14 @@
-package com.inoovalab.aaa.studentStatement.repository;
+package com.example.polls.repository;
 
-import com.inoovalab.aaa.studentStatement.model.MiscellaneousExpense;
+import com.example.polls.model.MiscellaneousExpense;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface MiscellaneousExpenseRepository extends JpaRepository<MiscellaneousExpense,Long> {
+
+    List<MiscellaneousExpense> findAllByStudent_Id(Long studentId);
 
 }

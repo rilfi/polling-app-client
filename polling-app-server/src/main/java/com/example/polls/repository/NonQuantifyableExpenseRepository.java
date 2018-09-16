@@ -1,6 +1,6 @@
-package com.inoovalab.aaa.studentStatement.repository;
+package com.example.polls.repository;
 
-import com.inoovalab.aaa.studentStatement.model.NonQuantifyableExpense;
+import com.example.polls.model.NonQuantifyableExpense;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

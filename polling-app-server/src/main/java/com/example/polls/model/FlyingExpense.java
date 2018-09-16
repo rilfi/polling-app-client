@@ -1,9 +1,12 @@
-package com.inoovalab.aaa.studentStatement.model;
+package com.example.polls.model;
 
-import com.inoovalab.aaa.studentStatement.model.audit.DateAudit;
-import com.inoovalab.aaa.studentStatement.model.audit.UserDateAudit;
+import com.example.polls.model.audit.UserDateAudit;
 
 import javax.persistence.*;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Date;
 
 @Entity
 @Table(name = "flyingExpense")
@@ -12,13 +15,44 @@ public class FlyingExpense extends UserDateAudit {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "student_id", nullable = false)
+    @JoinColumn(name = "student_id", nullable = true)
     private Student student;
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "aircraft_id", nullable = false)
-    private Aircraft aircraft;
-    Double duration;
-    Double amount;
+    @JoinColumn(name = "expenseType_id", nullable = true)
+    private ExpenseType expenseType;
+
+    @Temporal(TemporalType.DATE)
+    private Date date;
+    private Double duration;
+    private Double rate;
+    @Column(name="discount",columnDefinition = "double default 0.0")
+    private Double discount;
+    private Double amount;
+
+    public Double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Double amount) {
+        this.amount = amount;
+    }
+
+    public Double getRate() {
+        return rate;
+    }
+
+    public void setRate(Double rate) {
+        this.rate = rate;
+    }
+
+    public Double getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(Double discount) {
+        this.discount = discount;
+    }
 
     public Long getId() {
         return id;
@@ -36,12 +70,20 @@ public class FlyingExpense extends UserDateAudit {
         this.student = student;
     }
 
-    public Aircraft getAircraft() {
-        return aircraft;
+    public ExpenseType getExpenseType() {
+        return expenseType;
     }
 
-    public void setAircraft(Aircraft aircraft) {
-        this.aircraft = aircraft;
+    public void setExpenseType(ExpenseType expenseType) {
+        this.expenseType = expenseType;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public Double getDuration() {
@@ -51,12 +93,6 @@ public class FlyingExpense extends UserDateAudit {
     public void setDuration(Double duration) {
         this.duration = duration;
     }
-
-    public Double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(Double amount) {
-        this.amount = amount;
-    }
 }
+
+

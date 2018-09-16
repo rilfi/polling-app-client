@@ -1,4 +1,4 @@
-package com.inoovalab.aaa.studentStatement.payload;
+package com.example.polls.payload;
 
 public class DepositResponce {
 

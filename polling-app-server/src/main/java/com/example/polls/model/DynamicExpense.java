@@ -1,6 +1,6 @@
-package com.inoovalab.aaa.studentStatement.model;
+package com.example.polls.model;
 
-import com.inoovalab.aaa.studentStatement.model.audit.UserDateAudit;
+import com.example.polls.model.audit.UserDateAudit;
 
 import javax.persistence.*;
 

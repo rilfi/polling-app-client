@@ -84,11 +84,11 @@ public class PollService {
         Pageable pageable = PageRequest.of(page, size, Sort.Direction.DESC, "createdAt");
         Page<Poll> polls = pollRepository.findByCreatedBy(user.getId(), pageable);
 
-        if (polls.getNumberOfElements() == 0) {
+        if (polls.getNumberOfElements() == 0)
+        {
             return new PagedResponse<>(Collections.emptyList(), polls.getNumber(),
                     polls.getSize(), polls.getTotalElements(), polls.getTotalPages(), polls.isLast());
         }
-
         // Map Polls to PollResponses containing vote counts and poll creator details
         List<Long> pollIds = polls.map(Poll::getId).getContent();
         Map<Long, Long> choiceVoteCountMap = getChoiceVoteCountMap(pollIds);

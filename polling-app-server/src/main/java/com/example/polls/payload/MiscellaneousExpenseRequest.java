@@ -1,18 +1,12 @@
-package com.inoovalab.aaa.studentStatement.payload;
+package com.example.polls.payload;
 
 public class MiscellaneousExpenseRequest {
 
-    private Long expenseTypeId;
+
     private String expenseName;
     private  Double amount;
 
-    public Long getExpenseTypeId() {
-        return expenseTypeId;
-    }
 
-    public void setExpenseTypeId(Long expenseTypeId) {
-        this.expenseTypeId = expenseTypeId;
-    }
 
     public String getExpenseName() {
         return expenseName;
@@ -29,4 +23,6 @@ public class MiscellaneousExpenseRequest {
     public void setAmount(Double amount) {
         this.amount = amount;
     }
+
+
 }

@@ -1,6 +1,6 @@
-package com.inoovalab.aaa.studentStatement.model;
+package com.example.polls.model;
 
-import com.inoovalab.aaa.studentStatement.model.audit.UserDateAudit;
+import com.example.polls.model.audit.UserDateAudit;
 
 import javax.persistence.*;
 
@@ -10,9 +10,14 @@ public class SummeryExpense extends UserDateAudit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String type;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "student_id", nullable = false)
+    private Student student;
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "expenseType_id", nullable = false)
+    private ExpenseType expenseType;
     private String description;
-    Double amount;
+    private Double amount;
 
     public Long getId() {
         return id;
@@ -22,13 +27,7 @@ public class SummeryExpense extends UserDateAudit {
         this.id = id;
     }
 
-    public String getType() {
-        return type;
-    }
 
-    public void setType(String type) {
-        this.type = type;
-    }
 
     public String getDescription() {
         return description;
@@ -44,5 +43,21 @@ public class SummeryExpense extends UserDateAudit {
 
     public void setAmount(Double amount) {
         this.amount = amount;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public ExpenseType getExpenseType() {
+        return expenseType;
+    }
+
+    public void setExpenseType(ExpenseType expenseType) {
+        this.expenseType = expenseType;
     }
 }

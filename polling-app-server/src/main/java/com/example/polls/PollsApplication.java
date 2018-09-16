@@ -8,6 +8,9 @@ import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 import javax.annotation.PostConstruct;
 import java.util.TimeZone;
 
+
+
+
 @SpringBootApplication
 @EntityScan(basePackageClasses = {
 		PollsApplication.class,
@@ -17,7 +20,7 @@ public class PollsApplication {
 
 	@PostConstruct
 	void init() {
-		TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
+		TimeZone.setDefault(TimeZone.getTimeZone("Asia/Colombo"));
 	}
 
 	public static void main(String[] args) {

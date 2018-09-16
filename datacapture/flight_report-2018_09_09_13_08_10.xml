@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects type="array">
+  <object>
+    <flights type="array">
+    <flight>
+      <account>aaoa</account>
+      <date>2018-09-07</date>
+      <aircraft>8Q-GAK</aircraft>
+      <aircraft-type>C150</aircraft-type>
+      <type-of-activity>Lesson</type-of-activity>
+      <kind-of-operation>12+13 Take off, climbing, Circuit, Approach, Landing and circuit emergencies</kind-of-operation>
+      <program-name>CPL IR(A)</program-name>
+      <program-revision>Revision 0</program-revision>
+      <pics></pics>
+      <pics-reference></pics-reference>
+      <instructors>NITHIN</instructors>
+      <instructors-reference>5</instructors-reference>
+      <students>SARUMADH</students>
+      <students-reference>404</students-reference>
+      <renters></renters>
+      <renters-reference></renters-reference>
+      <crew></crew>
+      <crew-reference></crew-reference>
+      <customer></customer>
+      <departure>VRMG</departure>
+      <arrival>VRMG</arrival>
+      <off-block>09:10</off-block>
+      <airborne>09:05</airborne>
+      <landing>09:55</landing>
+      <on-block>10:00</on-block>
+      <tacho-start>2130.6</tacho-start>
+      <tacho-finish>2131.6</tacho-finish>
+      <block-time></block-time>
+      <airborne-time>0:50</airborne-time>
+      <tacho-time>1.0</tacho-time>
+      <pilot-flying>pilot_not_specified</pilot-flying>
+      <fuel-coefficient>6.0</fuel-coefficient>
+      <fuel>6.0</fuel>
+      <flight-rules>VFR</flight-rules>
+      <flight-type>Dual</flight-type>
+      <day-night>Day</day-night>
+      <cross-country>false</cross-country>
+      <if-time>00:00</if-time>
+      <asymmetric-time>00:00</asymmetric-time>
+      <landings>1</landings>
+      <touch-and-go>3</touch-and-go>
+      <approaches>0</approaches>
+      <go-around>0</go-around>
+      <comment>Need to imrpove on radio calls&amp;nbsp;&lt;br&gt;dont skip checks&amp;nbsp;&lt;br&gt;use rudder&amp;nbsp;&lt;br&gt;dont undershoot the &amp;nbsp;Turns ( know the winds )&amp;nbsp;&lt;br&gt;dont pull too much after round out , wait for the sink&amp;nbsp;</comment>
+      </flight>
+      <flight>
+        <account>aaoa</account>
+        <date>2018-07-07</date>
+        <aircraft>8Q-GAK</aircraft>
+        <aircraft-type>C150</aircraft-type>
+        <type-of-activity>Lesson</type-of-activity>
+        <kind-of-operation>12+13 Take off, climbing, Circuit, Approach, Landing and circuit emergencies</kind-of-operation>
+        <program-name>CPL IR(A)</program-name>
+        <program-revision>Revision 0</program-revision>
+        <pics></pics>
+        <pics-reference></pics-reference>
+        <instructors>NITHIN</instructors>
+        <instructors-reference>5</instructors-reference>
+        <students>SARUMADH</students>
+        <students-reference>404</students-reference>
+        <renters></renters>
+        <renters-reference></renters-reference>
+        <crew></crew>
+        <crew-reference></crew-reference>
+        <customer></customer>
+        <departure>VRMG</departure>
+        <arrival>VRMG</arrival>
+        <off-block>09:10</off-block>
+        <airborne>09:05</airborne>
+        <landing>09:55</landing>
+        <on-block>10:00</on-block>
+        <tacho-start>2130.6</tacho-start>
+        <tacho-finish>2131.6</tacho-finish>
+        <block-time>1:00</block-time>
+        <airborne-time>0:50</airborne-time>
+        <tacho-time>1.0</tacho-time>
+        <pilot-flying>pilot_not_specified</pilot-flying>
+        <fuel-coefficient>6.0</fuel-coefficient>
+        <fuel>6.0</fuel>
+        <flight-rules>VFR</flight-rules>
+        <flight-type>Dual</flight-type>
+        <day-night>Day</day-night>
+        <cross-country>false</cross-country>
+        <if-time>00:00</if-time>
+        <asymmetric-time>00:00</asymmetric-time>
+        <landings>1</landings>
+        <touch-and-go>3</touch-and-go>
+        <approaches>0</approaches>
+        <go-around>0</go-around>
+        <comment>Need to imrpove on radio calls&amp;nbsp;&lt;br&gt;dont skip checks&amp;nbsp;&lt;br&gt;use rudder&amp;nbsp;&lt;br&gt;dont undershoot the &amp;nbsp;Turns ( know the winds )&amp;nbsp;&lt;br&gt;dont pull too much after round out , wait for the sink&amp;nbsp;</comment>
+      </flight>
+    </flights>
+  </object>
+</objects>

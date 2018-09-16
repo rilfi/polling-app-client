@@ -1,8 +1,17 @@
-package com.inoovalab.aaa.studentStatement.payload;
+package com.example.polls.payload;
 
 public class QuantifiableExpenseRequest {
     private Long expenseTypeId;
-    private Integer quantity;
+    private Double quantity;
+    private Long studentId;
+
+    public Long getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(Long studentId) {
+        this.studentId = studentId;
+    }
 
     public Long getExpenseTypeId() {
         return expenseTypeId;
@@ -12,11 +21,11 @@ public class QuantifiableExpenseRequest {
         this.expenseTypeId = expenseTypeId;
     }
 
-    public Integer getQuantity() {
+    public Double getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(Double quantity) {
         this.quantity = quantity;
     }
 }

@@ -1,14 +1,14 @@
-package com.inoovalab.aaa.studentStatement.payload;
+package com.example.polls.payload;
 
 import java.time.Instant;
 
 public class StudentResponce {
     private Long id;
     private String name;
-    private String indexNo;
+    private Long referenceNo;
     private String email;
-    private UserSummary createdBy;
-    private Instant creationDateTime;
+    private String contactNo;
+
 
     public Long getId() {
         return id;
@@ -26,12 +26,12 @@ public class StudentResponce {
         this.name = name;
     }
 
-    public String getIndexNo() {
-        return indexNo;
+    public Long getReferenceNo() {
+        return referenceNo;
     }
 
-    public void setIndexNo(String indexNo) {
-        this.indexNo = indexNo;
+    public void setReferenceNo(Long referenceNo) {
+        this.referenceNo = referenceNo;
     }
 
     public String getEmail() {
@@ -42,19 +42,11 @@ public class StudentResponce {
         this.email = email;
     }
 
-    public UserSummary getCreatedBy() {
-        return createdBy;
+    public String getContactNo() {
+        return contactNo;
     }
 
-    public void setCreatedBy(UserSummary createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public Instant getCreationDateTime() {
-        return creationDateTime;
-    }
-
-    public void setCreationDateTime(Instant creationDateTime) {
-        this.creationDateTime = creationDateTime;
+    public void setContactNo(String contactNo) {
+        this.contactNo = contactNo;
     }
 }

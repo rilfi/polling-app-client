@@ -1,18 +1,41 @@
-package com.inoovalab.aaa.studentStatement.payload;
-
-import com.inoovalab.aaa.studentStatement.model.User;
-import org.hibernate.annotations.NaturalId;
-
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+package com.example.polls.payload;
 
 public class StudentRequest {
-    private Long id;
+
     private String name;
-    private String indexNo;
+    private Long referenceNo;
     private String email;
+    private  String contactNo;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Long getReferenceNo() {
+        return referenceNo;
+    }
+
+    public void setReferenceNo(Long referenceNo) {
+        this.referenceNo = referenceNo;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getContactNo() {
+        return contactNo;
+    }
+
+    public void setContactNo(String contactNo) {
+        this.contactNo = contactNo;
+    }
 }

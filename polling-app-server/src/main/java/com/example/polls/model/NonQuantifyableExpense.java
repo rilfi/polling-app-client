@@ -1,7 +1,7 @@
-package com.inoovalab.aaa.studentStatement.model;
+package com.example.polls.model;
 
 
-import com.inoovalab.aaa.studentStatement.model.audit.UserDateAudit;
+import com.example.polls.model.audit.UserDateAudit;
 
 import javax.persistence.*;
 
@@ -21,7 +21,6 @@ public class NonQuantifyableExpense extends UserDateAudit {
     @JoinColumn(name = "student_id", nullable = false)
     private Student student;
 
-    private Double amount;
 
     public Long getId() {
         return id;
@@ -47,11 +46,5 @@ public class NonQuantifyableExpense extends UserDateAudit {
         this.student = student;
     }
 
-    public Double getAmount() {
-        return amount;
-    }
 
-    public void setAmount(Double amount) {
-        this.amount = amount;
-    }
 }

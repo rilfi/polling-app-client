@@ -1,11 +1,12 @@
-package com.inoovalab.aaa.studentStatement.payload;
+package com.example.polls.payload;
 
-import com.inoovalab.aaa.studentStatement.model.audit.UserDateAudit;
+import com.example.polls.model.audit.UserDateAudit;
 
 public class DynamicExpenseRequest extends UserDateAudit {
 
     private Long expenseTypeId;
     private  Double amount;
+    private Long studentId;
 
     public Long getExpenseTypeId() {
         return expenseTypeId;
@@ -21,5 +22,13 @@ public class DynamicExpenseRequest extends UserDateAudit {
 
     public void setAmount(Double amount) {
         this.amount = amount;
+    }
+
+    public Long getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(Long studentId) {
+        this.studentId = studentId;
     }
 }

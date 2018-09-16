@@ -1,17 +1,14 @@
-package com.inoovalab.aaa.studentStatement.service;
+package com.example.polls.service;
 
-import com.inoovalab.aaa.studentStatement.exception.BadRequestException;
-import com.inoovalab.aaa.studentStatement.model.Student;
-import com.inoovalab.aaa.studentStatement.model.User;
-import com.inoovalab.aaa.studentStatement.payload.PagedResponse;
-import com.inoovalab.aaa.studentStatement.payload.StudentResponce;
-import com.inoovalab.aaa.studentStatement.repository.MiscellaneousExpenseRepository;
-import com.inoovalab.aaa.studentStatement.repository.StudentRepository;
-import com.inoovalab.aaa.studentStatement.repository.SummeryExpenseRepository;
-import com.inoovalab.aaa.studentStatement.repository.UserRepository;
-import com.inoovalab.aaa.studentStatement.security.UserPrincipal;
-import com.inoovalab.aaa.studentStatement.util.AppConstants;
-import com.inoovalab.aaa.studentStatement.util.ModelMapper;
+
+import com.example.polls.exception.BadRequestException;
+import com.example.polls.model.*;
+import com.example.polls.payload.*;
+import com.example.polls.repository.*;
+import com.example.polls.security.UserPrincipal;
+import com.example.polls.util.AppConstants;
+import com.example.polls.util.ModelMapper;
+import org.hibernate.tool.hbm2ddl.SchemaExportTask;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -19,22 +16,31 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+
 @Service
 public class StudentService {
 
     @Autowired
     StudentRepository studentRepository;
-    @Autowired
-    SummeryExpenseRepository summeryExpenseRepository;
-    @Autowired
-    MiscellaneousExpenseRepository miscellaneousExpenseRepository;
+
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private ExpenseTypeRepository expenseTypeRepository;
+
+    @Autowired
+    private MiscellaneousExpenseRepository miscellaneousExpenseRepository;
+    @Autowired
+    private SummeryExpenseRepository summeryExpenseRepository;
 
 
 
@@ -67,15 +73,7 @@ public class StudentService {
 
 
 
-    private void validatePageNumberAndSize(int page, int size) {
-        if(page < 0) {
-            throw new BadRequestException("Page number cannot be less than zero.");
-        }
 
-        if(size > AppConstants.MAX_PAGE_SIZE) {
-            throw new BadRequestException("Page size must not be greater than " + AppConstants.MAX_PAGE_SIZE);
-        }
-    }
     Map<Long, User> getStudentCreatorMap(List<Student> students) {
         // Get Poll Creator details of the given list of polls
         List<Long> creatorIds = students.stream()
@@ -88,6 +86,84 @@ public class StudentService {
                 .collect(Collectors.toMap(User::getId, Function.identity()));
 
         return creatorMap;
+    }
+
+    public Student createStudent(StudentRequest studentRequest) {
+        Student student = new Student();
+        student.setReferenceNo(studentRequest.getReferenceNo());
+        student.setName(studentRequest.getName());
+        student.setEmail(studentRequest.getEmail());
+        student.setContactNo(studentRequest.getContactNo());
+
+
+
+
+
+        return studentRepository.save(student);
+    }
+
+    public Double getDiscount(Long studentId, Long expenseTypeID, Date date){
+
+
+
+return null;
+
+
+    }
+
+    public ExpenseType createExpenseType(ExpenseTypeRequest expenseTypeRequest) {
+        ExpenseType expenseType = new ExpenseType();
+        expenseType.setType(expenseTypeRequest.getType());
+        expenseType.setSubType(expenseTypeRequest.getSubType());
+        expenseType.setCharge(expenseTypeRequest.getCharge());
+
+        return expenseTypeRepository.save(expenseType);
+    }
+
+    public List<ExpenseTypeResponce>getExpensetypes(){
+
+        List<ExpenseType>expenseTypes=expenseTypeRepository.findAll();
+
+
+        List<ExpenseTypeResponce> expenseTypeResponces = expenseTypes.stream().map(expenseType ->
+        {
+            ExpenseTypeResponce obj = new ExpenseTypeResponce();
+            obj.setId(expenseType.getId());
+            obj.setType(expenseType.getType());
+            obj.setSubType(expenseType.getSubType());
+            obj.setCharge(expenseType.getCharge());
+            return obj;
+        }).collect(Collectors.toList());
+
+
+        return  expenseTypeResponces;
+
+    }
+
+
+
+
+    public List<SummeryExpenseResponce>getSummeryExpense(Long studentId){
+
+        List<SummeryExpense>summeryExpenses=summeryExpenseRepository.findAllByStudent_Id(studentId);
+
+
+        List<SummeryExpenseResponce> summeryExpenseResponces = summeryExpenses.stream().map(summeryExpense ->
+            ModelMapper.mapSummeryExpenseToSummeryExpenseResponse(summeryExpense)).collect(Collectors.toList());
+
+
+        return  summeryExpenseResponces;
+
+    }
+
+    private void validatePageNumberAndSize(int page, int size) {
+        if(page < 0) {
+            throw new BadRequestException("Page number cannot be less than zero.");
+        }
+
+        if(size > AppConstants.MAX_PAGE_SIZE) {
+            throw new BadRequestException("Page size must not be greater than " + AppConstants.MAX_PAGE_SIZE);
+        }
     }
 
 }

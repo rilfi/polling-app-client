@@ -1,4 +1,4 @@
-package com.inoovalab.aaa.studentStatement.model;
+package com.example.polls.model;
 
 import javax.persistence.*;
 import java.util.Date;

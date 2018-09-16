@@ -1,7 +1,6 @@
-package com.inoovalab.aaa.studentStatement.model;
+package com.example.polls.model;
 
-import com.inoovalab.aaa.studentStatement.model.User;
-import com.inoovalab.aaa.studentStatement.model.audit.UserDateAudit;
+import com.example.polls.model.audit.UserDateAudit;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
@@ -12,7 +11,7 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "student" ,uniqueConstraints = {
         @UniqueConstraint(columnNames = {
-                "indexNo"
+                "referenceNo"
         }),
         @UniqueConstraint(columnNames = {
                 "email"
@@ -24,16 +23,33 @@ public class Student extends UserDateAudit {
     private Long id;
 
     private String name;
-    private String indexNo;
+    private Long referenceNo;
     @NaturalId
     @NotBlank
     @Size(max = 40)
     @Email
     private String email;
+    private String contactNo;
 
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    public Long getReferenceNo() {
+        return referenceNo;
+    }
+
+    public void setReferenceNo(Long referenceNo) {
+        this.referenceNo = referenceNo;
+    }
+
+    public String getContactNo() {
+        return contactNo;
+    }
+
+    public void setContactNo(String contactNo) {
+        this.contactNo = contactNo;
+    }
+
+    /*@OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private User user;*/
 
     public Long getId() {
         return id;
@@ -51,13 +67,7 @@ public class Student extends UserDateAudit {
         this.name = name;
     }
 
-    public String getIndexNo() {
-        return indexNo;
-    }
 
-    public void setIndexNo(String indexNo) {
-        this.indexNo = indexNo;
-    }
 
     public String getEmail() {
         return email;
@@ -67,11 +77,12 @@ public class Student extends UserDateAudit {
         this.email = email;
     }
 
-    public User getUser() {
+
+/*    public User getUser() {
         return user;
     }
 
     public void setUser(User user) {
         this.user = user;
-    }
+    }*/
 }
